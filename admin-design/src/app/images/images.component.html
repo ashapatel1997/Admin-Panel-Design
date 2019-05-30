@@ -1,0 +1,40 @@
+<!--image page heading-->
+<nav class="navbar  navbar-light bg-custom bottom-panel-top-header">
+  <a class="navbar-brand content-title" >Image Slider</a>
+  <button routerLink="/images/add-image" class="btn btn-primary pull-right"><i class="fa fa-plus" arial-hidden="true"></i>Add New Image</button>
+</nav>
+
+
+<!--image slider--> 
+<div class="img-slider">
+  <img class="img" height="200"  src="{{imgUrl}}" alt="Image not available">
+  <p class="img-description">
+    {{imgDescription}}
+  </p>
+  <button class="fa fa-angle-right img-slider-left-btn  " (click)="getNext(-1)" [disabled]="disabledLeft"></button>
+  <button class="fa fa-angle-right img-slider-right-btn" (click)="getNext(1)" [disabled]="disabledRight"></button>
+</div>
+
+
+<!--table containing image list-->
+<div class="img-list-table ">
+  <table class="table table-hover table-stripped" *ngIf="count">
+    <thead>
+      <tr>
+        <th width="40%">Image URL</th>
+        <th width="40%">Image Caption</th>
+        <th width="20%" class="edit-delete-heading"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let image of listImg">
+        <td class="image-url-description-row">{{image.imageUrl}}   </td>
+        <td class="image-url-description-row">{{image.imageDescription}}</td>
+        <td class="edit-delete-icon-row">
+          <i class="fa fa-edit" aria-hidden="true" (click)="editImage(image.imageUrl)" data-toggle="tooltip"  title="Edit Image" routerLink="images/edit-image"></i>
+          <i class="fa fa-trash" aria-hidden="true" (click)="deleteImage(image.imageUrl)" data-toggle="tooltip"  title="Delete Image"></i>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+</div>

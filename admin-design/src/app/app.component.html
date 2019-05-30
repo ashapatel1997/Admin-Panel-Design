@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Design</title>
+
+</head>
+<body>
+
+  <!--admin panel top header-->
+  <nav class="navbar navbar-light bg-custom top-panel">
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand ">
+        <img src="assets/admin.png" class="d-inline top-panel-brand-image mt-0" />
+        <p class="d-inline pl-2  top-panel-brand-heading">Admin Panel</p>
+      </a>
+    </div>
+    <div class="navbar-header pull-right">
+      <span class="top-panel-admin-name  d-inline text-right ">Admin Name</span>
+      <i class="fa fa-power-off  top-panel-pawor-off-icon d-inline text-right" data-toggle="tooltip"  title="Logout"></i>
+    </div>
+  </nav>
+
+ <!--bottom panel-->
+  <div class="admin-panel-bottom">
+    <!-- left navbar menu -->
+    <nav class="navbar-expand-lg admin-panel-bottom-left-menu">
+      <!--left toggle button for menu-->
+      <button class="navbar-toggler ml-10" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar" aria-expanded="false" aria-label="navBar">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navBar">
+        <ul>
+          <li data-toggle="collapse" data-target=".navbar-collapse"><a routerLink="/users" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Users</a></li>
+          <li data-toggle="collapse" data-target=".navbar-collapse"><a routerLink="/images" routerLinkActive="active">Image</a></li>
+
+          <li>
+            <a routerLinkActive="active" routerLink="/reports">
+              Report<i class="fa fa-angle-down"></i>
+              <i class="fa fa-angle-up"></i>
+            </a>
+            <ul>
+              <li data-toggle="collapse" data-target=".navbar-collapse"><a routerLink="/reports/report1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report-1</a></li>
+              <li data-toggle="collapse" data-target=".navbar-collapse"><a routerLink="/reports/report2" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report-2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!--bottom right content page-->
+    <div class="admin-panel-bottom-right-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+

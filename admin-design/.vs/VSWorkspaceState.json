@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\common-styles",
+    "\\src\\app\\images",
+    "\\src\\app\\images\\add-image",
+    "\\src\\app\\users",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\src\\app\\users\\users.component.html",
+  "PreviewInSolutionExplorer": false
+}

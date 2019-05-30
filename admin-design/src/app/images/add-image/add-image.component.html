@@ -1,0 +1,43 @@
+<!--top header-->
+<nav class="navbar  navbar-light bg-custom bottom-panel-top-header">
+  <a class="navbar-brand content-title">Add Image</a>
+  <button routerLink="/images" class="btn btn-primary pull-right"><i class="fa  fa-angle-double-left" arial-hidden="true"></i>Back</button>
+</nav>
+
+<!--add image form-->
+<form (ngSubmit)="saveImage()"  #form="ngForm">
+
+  <!--image URL input field-->
+  <div class="form-group img-url-div">
+    <label for="imageUrl" class="img-url-label">Image URL</label>
+    <input type="text" name="imageUrl" id="imageUrl" class="form-control img-url-input" autocomplete="off" [(ngModel)]="image.imageUrl" required #url="ngModel" placeholder="URL" />
+    <div *ngIf="url.errors && (url.dirty || url.touched)">
+      <div [hidden]="!url.errors.required" class="error-alert">
+        Image URL field is empty
+      </div>
+    </div>
+    </div>
+
+  <!--image description input field-->
+  <div class="form-group img-description-div">
+    <label for="imgDescription" class="img-description-label">Image Description</label>
+
+    <textarea class="form-control img-description-input" type="text" rows="2" name="imageDescription" id="imageDescription" autocomplete="off" [(ngModel)]="image.imageDescription" required #description="ngModel" placeholder="Description"> </textarea>
+
+    <div *ngIf="description.errors && (description.dirty || description.touched)">
+      <div [hidden]="!description.errors.required" class="error-alert">
+        Image description is empty
+      </div>
+    </div>
+  </div>
+
+  <!--save and calcel button-->
+    <nav class="navbar  navbar-light bg-custom form-control-btn">
+      <button class="btn btn-primary pull-left save-btn" type="submit" value="submit" [disabled]="!form.valid"><i class="fa  fa-save" arial-hidden="true"></i>Save</button>
+      <button class="btn btn-secondary pull-right cancel-btn" (click)="cancel()" ><i class="fa  fa-close" arial-hidden="true"></i>Cancel</button>
+    </nav>
+</form>
+
+
+
+

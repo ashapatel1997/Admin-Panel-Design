@@ -1,0 +1,110 @@
+
+@import '../../common-styles/common.scss';
+
+.bottom-panel-top-header {
+
+  button {
+    float: right;
+    padding: 5px;
+    background-color: #ffb3b3;
+    color: #00264d;
+    border: 1px solid #00264d;
+    margin: 5px;
+   
+
+    &:hover {
+
+      @include button-hover();
+    }
+
+    i {
+      margin-right: 2px;
+    }
+  }
+}
+
+//add image form
+form {
+  width: 50%;
+  margin: auto;
+  margin: 7% auto 0px auto;
+  font-size: 20px;
+  font-family: Calibri;
+
+  .form-control-btn {
+    .save-btn {
+      background-color: #ffb3b3;
+      color: black;
+
+      &:hover {
+
+        @include button-hover();
+      }
+
+      i {
+        margin-right: 4px;
+      }
+
+      &[disabled] {
+        background-color: #808080;
+        cursor: no-drop;
+        border: 1px solid #808080;
+      }
+    }
+
+    .cancel-btn {
+      color: black;
+
+      &:hover {
+
+        @include button-hover();
+      }
+
+      i {
+        margin-right: 2px;
+      }
+    }
+  }
+}
+
+
+.error-alert{
+  color:red;
+  font-size:15px;
+}
+
+//styles for the form and content header if screen size is max 768px
+@media only screen and (max-width:768px) {
+  .bottom-panel-top-header {
+    /*back button of bottom top header*/
+    button {
+      font-size: 13px;
+    }
+  }
+
+  form {
+    font-size: 15px;
+
+    .form-control-btn {
+      .save-btn {
+        font-size: 15px;
+      }
+
+      .cancel-btn {
+        font-size: 15px;
+      }
+    }
+  }
+ }
+
+//style for the form if screen size is max 425px
+@media only screen and (max-width:425px) {
+  form {
+    font-size: 17px;
+    width: 80%;
+  
+    .form-control-btn {
+      padding:0px;
+    }
+  }
+}

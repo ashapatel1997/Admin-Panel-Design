@@ -1,0 +1,17 @@
+@import 'mixins';
+
+
+//top header of right panel content
+.bottom-panel-top-header {
+  margin: 10px;
+  border-bottom: 1px solid black;
+  padding: 0px;
+  background-color: #d1e0e0;
+  border-radius: 5px;
+
+
+  .content-title {
+    font-size: 23px;
+    color: black;
+  }
+}

@@ -1,0 +1,248 @@
+//container class for bottom section
+.container-fluid{
+  padding:0px;
+  margin:0px;
+}
+
+//common styles for left panel dropdown icon
+%fa-angle-up-down {
+  float: right;
+  padding: 5px 10px 8px 0px;
+  font-size: 20px;
+}
+
+//top fixed header of admin panel
+.top-panel {
+  background-color: #004d99;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  
+  padding:0px 0px 0px 10px;
+  //header left heading with image
+  .navbar-brand {
+   
+    .top-panel-brand-image {
+      height: 40px;
+      width: 40px;
+      margin-bottom: 3px;
+    }
+
+    .top-panel-brand-heading {
+      color: white;
+      font-size: 25px;
+    }
+  }
+
+  //header top right collapse button
+  button {
+    padding: 5px;
+  }
+
+  .top-panel-admin-name {
+   text-align:right;
+    padding-right: 10px;
+    font-size: 20px;
+    color: white;
+  }
+
+  .top-panel-pawor-off-icon {
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+    padding-right: 10px;
+  }
+}
+
+//bottom panel
+.admin-panel-bottom {
+  height: 100%;
+  width: 100%;
+  //bottom left menu
+  .admin-panel-bottom-left-menu {
+    width: 15%;
+    background-color: #00264d;
+    position: fixed;
+    margin-top: 56px;
+    height: 100%;
+    display: inline-block;
+    border-top: 1px solid #00264d;
+    //bottom left collapse button
+    button {
+      margin-left: 30px;
+      font-size: 30px;
+      border: 1px solid black;
+      margin: 10px 0px 10px 17px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0px;
+      margin-bottom: 0px;
+      width: 100%;
+
+      li {
+        .fa-angle-down {
+          @extend %fa-angle-up-down;
+        }
+
+        .fa-angle-up {
+          @extend %fa-angle-up-down;
+          display: none;
+        }
+
+        &:hover {
+
+
+          .fa-angle-down {
+            display: none;
+          }
+
+          .fa-angle-up {
+            display: block;
+          }
+        }
+
+        a {
+          color: white;
+          display: block;
+          padding: 5px 0px 8px 10px;
+          text-decoration: none;
+          font-size: 20px;
+
+          &:hover {
+            background-color: #001133;
+          }
+
+          &.active {
+            color: #ff9999;
+          }
+        }
+
+        ul {
+          list-style-type: none;
+          margin-top: 0px;
+          padding-left: 0px;
+          overflow: hidden;
+          max-height: 0;
+
+          li {
+            a {
+              padding: 5px 0px 8px 20px;
+
+              &.active {
+                color: #ff9999;
+              }
+            }
+          }
+        }
+
+        &:hover {
+
+          ul {
+            max-height: 200px;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+  //bottom right content
+  .admin-panel-bottom-right-content {
+    background-color: #e6f2ff;
+    position: absolute;
+    margin-top: 56px;
+    width: 85%;
+    min-height: calc(100vh - 56px);
+    margin-left: 15%;
+  }
+
+  
+
+//styles apply to the page if max screen size is 990px 
+@media only screen and (max-width:990px)
+{
+
+  .top-panel {
+    padding: 0px 10px 0px 0px;
+
+    .navbar-brand {
+      .top-panel-brand-image {
+        height: 25px;
+        width: 25px;
+        margin-bottom: 5px;
+        margin-left: 10px
+      }
+
+      .top-panel-brand-heading {
+        font-size: 20px;
+      }
+    }
+
+    button {
+      margin-left: 30px;
+      font-size: 12px;
+      margin: 5px 0px 5px 16px;
+    }
+
+    .top-panel-admin-name {
+      font-size: 15px;
+    }
+
+    .top-panel-pawor-off-icon {
+      font-size: 15px;
+      padding-right: 0px;
+    }
+  }
+
+
+  .admin-panel-bottom {
+    .admin-panel-bottom-left-menu {
+      margin-top: 43px;
+      width: 100%;
+      height: auto;
+      position: unset;
+      margin-bottom: 0px;
+
+      button {
+        margin-left: 30px;
+        font-size: 20px;
+        border: 1px solid black;
+        margin: 5px 0px 5px 10px;
+      }
+
+      ul {
+        li {
+          a {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    .admin-panel-bottom-right-content {
+      margin: 0px;
+      width: 100%;
+      min-height:85%;
+    }
+  }
+  
+}
+
+
+//styles apply to the page if max screen size is 225px
+@media only screen and (max-width:225px) {
+  .admin-panel-bottom {
+    .admin-panel-bottom-left-menu {
+      margin-top: 83px;
+    }
+  }
+}
+
+
+
+
+
