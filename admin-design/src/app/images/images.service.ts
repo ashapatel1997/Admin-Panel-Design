@@ -5,6 +5,9 @@ import { Images } from './images';
 })
 export class ImagesService {
 
+  constructor() { }
+
+
   public imageList: Images[] = [
     {
       imageUrl: "assets/img-1.jpg",
@@ -67,5 +70,4 @@ export class ImagesService {
     return this.imageList.length;
   }
 
-  constructor() { }
 }

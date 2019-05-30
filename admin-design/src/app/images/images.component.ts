@@ -26,17 +26,30 @@ export class ImagesComponent implements OnInit {
 
   /*array length is not zero then count=true and show table,
   if length is zero then count = false and hide table*/
-  count: boolean = true;
+  count: boolean;
 
   ngOnInit() {
 
 
-    this.listImg = this._imagesService.getImages();
-    this.fetchImage = this._imagesService.getFetchedImage(0);
+    if (this._imagesService.getLength() == 0)
+    {
+      this.count = false;
+      this.imgUrl = 'assets/image-not-available.png';
+      this.imgDescription = '';
+    }
 
-    this.imageIndex = 1;
-    this.length = this.listImg.length;
-    this.getNextImage(this.imageIndex);
+    else {
+      this.count = true;
+      this.listImg = this._imagesService.getImages();
+      this.fetchImage = this._imagesService.getFetchedImage(0);
+
+      this.imageIndex = 1;
+
+      this.length = this.listImg.length;
+      this.getNextImage(this.imageIndex);
+    }
+   
+   
 
   }
 

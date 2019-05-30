@@ -34,7 +34,7 @@
   <!--save and calcel button-->
     <nav class="navbar  navbar-light bg-custom form-control-btn">
       <button class="btn btn-primary pull-left save-btn" type="submit" value="submit" [disabled]="!form.valid"><i class="fa  fa-save" arial-hidden="true"></i>Save</button>
-      <button class="btn btn-secondary pull-right cancel-btn" (click)="cancel()" ><i class="fa  fa-close" arial-hidden="true"></i>Cancel</button>
+      <button class="btn btn-secondary pull-right cancel-btn" (mousedown)="cancel()" ><i class="fa  fa-close" arial-hidden="true"></i>Cancel</button>
     </nav>
 </form>
 
