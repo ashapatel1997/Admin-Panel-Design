@@ -11,35 +11,50 @@ import { Form, FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsMod
 })
 export class AddImageComponent implements OnInit {
 
-  image: Images; 
+  //instance of the Images class
+  image: Images;
+ 
 
   constructor(private _imagesService: ImagesService,
     private _router: Router, private _activatedRoute: ActivatedRoute,
-   ) { }
+  ) { }
+
 
   ngOnInit() {
 
-
     this.image = new Images();
 
-    //fetch imageName from router link and get details if exists
+    //fetch image id from router link and get details if exists
     this._activatedRoute.paramMap.subscribe(e => {
-      const imageName = e.get('imageUrl');
-      if (imageName) {
-        this.getImgDetails(imageName);
-       
+      const imgId = +e.get('id');
+      console.log(imgId);
+      if (imgId) {
+        this.getImg(imgId);
       }
     });
 
 
   }
 
-  getImgDetails(imageName:string) {
-    this.image = this._imagesService.getImageDetails(imageName);
+  /**
+   * fetch details of the image selected for edit the content
+   * @param imgId id of the image that is to be edited
+   */
+  getImg(imgId: number) {
+   
+    if (imgId === 0) {
+      this.image = { id:null, imageUrl: null, imageDescription: null };
+    }
+    else {
+     
+      this.image = this._imagesService.getImage(imgId);
+   
+    }
   }
 
   //function call on save button click
   saveImage() {
+    console.log("saved image id=", this.image.id);
     this._imagesService.saveImage(this.image);
     this._router.navigate(['images']);
   }

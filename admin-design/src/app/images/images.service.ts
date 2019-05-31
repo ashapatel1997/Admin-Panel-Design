@@ -11,11 +11,13 @@ export class ImagesService {
    imagesList object of Images array*/
   public imageList: Images[] = [
     {
+      id: 1,
       imageUrl: "assets/img-1.jpg",
       imageDescription: "image 1 description here "
 
     },
     {
+      id:2,
       imageUrl: "assets/taj.jpg",
       imageDescription: "An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his favourite wife, the Taj Mahal is the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage. "
 
@@ -23,56 +25,58 @@ export class ImagesService {
    
   ];
 
-  /** fetch entire array of Images */
+ // /** fetch entire array of Images */
   public getImages(): Images[] {
     return this.imageList;
   }
+  //maxId is to find out last maximum id of image
+  maxId: number;
 
-
-  imageIndex: number = -1;
-
- /* when user clicks on "add new image"
-  button, idex will be set to -1 to add new image in array*/
-  public setIndexMinusOne() {
-    this.imageIndex = -1;
-  }
-
-  /**get image details to bind it with edit page form fields
-   * 
-   * @param image is to find index of image
-   */
-  getImageDetails(image: string) {
-    this.imageIndex = this.imageList.findIndex(i => i.imageUrl == image);
-    return this.imageList[this.imageIndex];
-  }
-
-  /**save image (either added new or edited one)
-   * 
-   * @param image object of Images class to save in array
-   */
+ /**
+  * Save image 
+  * @param image object of the image class
+  */
   public saveImage(image: Images) {
-    console.log(this.imageIndex);
-    
-    if (this.imageIndex !== -1) {
-      this.imageList[this.imageIndex] = image;
+   /*if image is added then id will be undefine and then assign id=maxId+1*/
+    if (image.id === undefined) {
+      /*if length is zero then assign maxId=1*/
+      if (this.imageList.length == 0) {
+        this.maxId = 1;
+        this.imageList.push(image);
+      }
+      else {
+        this.maxId = this.imageList.reduce(function (i1, i2) { return (i1 > i2) ? i1 : i2 }).id;
+        image.id = this.maxId + 1;
+        console.log("assign id=", image.id);
+        this.imageList.push(image);
+      }
+      
     }
-    else {
-      this.imageList.push(image);
+
+    else
+    {
+      const index = this.imageList.findIndex(i => i.id == image.id);
+      this.imageList[index] = image;
     }
+   
+  }
+
+  public getImage(id: number) {
+    const index = this.imageList.findIndex(i => i.id == id);
+    return this.imageList[index];
   }
 
   /**
-   * delete image if use clickes on delete icon
-   * @param image to find index of specific image data 
+   * delete image
+   * @param id of selected image
    */
-  public deleteImage(image: string) {
-    const index = this.imageList.findIndex(i => i.imageUrl === image);
-
+  deleteImage(id: number) {
+    const index = this.imageList.findIndex(i => i.id === id);
     this.imageList.splice(index, 1);
-
     return index;
 
   }
+
 
   /**fetch image URL and description of index to disply it in slider
    * 

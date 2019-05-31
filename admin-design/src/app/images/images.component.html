@@ -2,7 +2,7 @@
 <!--image page heading-->
 <div class=" content-top-header">
   <h4 class="navbar-brand content-title d-inline-block">Image Slider</h4>
-  <button routerLink="/images/add-image" target="_parent" href="" (click)="setIndexMinusOne()" class="btn btn-primary pull-right d-inline-block"><i class="fa  fa-plus" arial-hidden="true"></i>Add New Image</button>
+  <button routerLink="/images/add-image" target="_parent" href=""  class="btn btn-primary pull-right d-inline-block"><i class="fa  fa-plus" arial-hidden="true"></i>Add New Image</button>
 </div>
 
 
@@ -33,8 +33,8 @@
         <td class="image-url-description-row">{{image.imageUrl}}   </td>
         <td class="image-url-description-row">{{image.imageDescription}}</td>
         <td class="edit-delete-icon-row">
-          <i class="fa fa-edit" aria-hidden="true" (click)="editImage(image.imageUrl)" data-toggle="tooltip" title="Edit Image" routerLink="images/edit-image"></i>
-          <i class="fa fa-trash" aria-hidden="true" (click)="deleteImage(image.imageUrl)" data-toggle="tooltip" title="Delete Image"></i>
+          <i class="fa fa-edit" aria-hidden="true" (click)="editImage(image.id)" data-toggle="tooltip" title="Edit Image" routerLink="images/edit-image"></i>
+          <i class="fa fa-trash" aria-hidden="true" (click)="deleteImage(image.id)" data-toggle="tooltip" title="Delete Image"></i>
         </td>
       </tr>
     </tbody>

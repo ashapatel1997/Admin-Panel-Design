@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'reports/report1', component: Report1Component },
   { path: 'images', component: ImagesComponent },
   
-  { path: 'images/edit-image/:imageUrl', component: AddImageComponent },
+  { path: 'images/edit-image/:id', component: AddImageComponent },
   { path: 'images/add-image', component: AddImageComponent },
 
   { path: '', redirectTo: 'users', pathMatch: 'full' },

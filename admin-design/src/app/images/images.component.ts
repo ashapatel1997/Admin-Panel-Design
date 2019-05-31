@@ -16,7 +16,7 @@ export class ImagesComponent implements OnInit {
 
   listImg: Images[]; //array of images
   fetchImage: Images; //fetch image to display in slider
-  imgUrl = ''; 
+  imgUrl = '';
   imgDescription = '';
   index = 0; //deleted image index
   disabledLeft: boolean; //left slider button
@@ -30,14 +30,17 @@ export class ImagesComponent implements OnInit {
 
   ngOnInit() {
 
-
+   //if length of array is zero then display default image and disable slider buttons
     if (this._imagesService.getLength() == 0)
     {
       this.count = false;
       this.imgUrl = 'assets/image-not-available.png';
       this.imgDescription = '';
+      this.disabledLeft = true;
+      this.disabledRight = true;
     }
 
+    //else display first image in slider
     else {
       this.count = true;
       this.listImg = this._imagesService.getImages();
@@ -48,20 +51,24 @@ export class ImagesComponent implements OnInit {
       this.length = this.listImg.length;
       this.getNextImage(this.imageIndex);
     }
-   
-   
+
+
 
   }
 
-  setIndexMinusOne() {
-    this._imagesService.setIndexMinusOne();
+  //edit selected image
+  editImage(id: number) {
+    
+    this._route.navigate(['images/edit-image',id]);
   }
 
 
   //delete image
-  deleteImage(image: string) {
-    this.index = this._imagesService.deleteImage(image);
+  deleteImage(id: number) {
+   
+    this.index = this._imagesService.deleteImage(id);
     this.length = this.listImg.length;
+   
 
     if (this.length == 0) {
       this.count = false;
@@ -73,56 +80,53 @@ export class ImagesComponent implements OnInit {
       this.getNextImage(this.imageIndex);
     }
 
-
   }
+   
 
-  //edit image
-  editImage(imageUrl: string) {
-    this._route.navigate(['images/edit-image', imageUrl]);
-  }
+  //  /**
+  //   * get next or privious image index
+  //   * @param n is +1(if user clicks on right slider button) or
+  //   *              -1 (if user clicks on left slider button)
+  //   */
 
-  /**
-   * get next or privious image index
-   * @param n is +1(if user clicks on right slider button) or
-   *              -1 (if user clicks on left slider button)
-   */
+    getNext(n) {
+      this.imageIndex += n;
+      this.getNextImage(this.imageIndex);
+    }
+
+ /**get next or previous image to display in slider
+     * 
+     * @param imageIndex is index+1 
+ */
+
+  getNextImage(imageIndex: number)
+  {
+
+      //disable left slider button if index is 0
+      if ((imageIndex - 1) == 0) {
+        this.disabledLeft = true;
+      }
+      else {
+        this.disabledLeft = false;
+      }
+
+       //disable both slider button if index is 0 and array length is 1
+      if ((imageIndex - 1) == 0 && this.length == 1) {
+        this.disabledLeft = true;
+        this.disabledRight = true;
+      }
+
+       //disable right slider button if index is array length
+      if ((imageIndex) == this.length) {
+        this.disabledRight = true;
+      }
+      else {
+        this.disabledRight = false;
+      }
+
+      this.fetchImage = this._imagesService.getFetchedImage(this.imageIndex - 1);
+      this.imgUrl = this.fetchImage.imageUrl;
+      this.imgDescription = this.fetchImage.imageDescription;
+    }
   
-  getNext(n) {
-    this.imageIndex += n;
-    this.getNextImage(this.imageIndex);
-  }
-
-  /**get next or previous image to display in slider
-   * 
-   * @param imageIndex is index+1 
-   */
- 
-  getNextImage(imageIndex: number) {
-
-    //disable left slider button if index is 0
-    if ((imageIndex - 1) == 0) {
-      this.disabledLeft = true;
-    }
-    else {
-      this.disabledLeft = false;
-    }
-
-     //disable both slider button if index is 0 and array length is 1
-    if ((imageIndex - 1) == 0 && this.length == 1) {
-      this.disabledLeft = true;
-      this.disabledRight = true;
-    }
-
-     //disable right slider button if index is array length
-    if ((imageIndex) == this.length) {
-      this.disabledRight = true;
-    }
-    else {
-      this.disabledRight = false;
-    }
-
-    this.fetchImage = this._imagesService.getFetchedImage(this.imageIndex - 1);
-    this.imgUrl = this.fetchImage.imageUrl;
-    this.imgDescription = this.fetchImage.imageDescription;
-  }
 }
