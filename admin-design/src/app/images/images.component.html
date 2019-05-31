@@ -1,17 +1,19 @@
+
 <!--image page heading-->
-<nav class="navbar  navbar-light bg-custom bottom-panel-top-header">
-  <a class="navbar-brand content-title" >Image Slider</a>
-  <button routerLink="/images/add-image" class="btn btn-primary pull-right"><i class="fa fa-plus" arial-hidden="true"></i>Add New Image</button>
-</nav>
+<div class=" content-top-header">
+  <h4 class="navbar-brand content-title d-inline-block">Image Slider</h4>
+  <button routerLink="/images/add-image" target="_parent" href="" (click)="setIndexMinusOne()" class="btn btn-primary pull-right d-inline-block"><i class="fa  fa-plus" arial-hidden="true"></i>Add New Image</button>
+</div>
 
 
-<!--image slider--> 
+
+<!--image slider-->
 <div class="img-slider">
-  <img class="img" height="200"  src="{{imgUrl}}" alt="Wrong Image Path">
-  <p class="img-description">
+  <img class="img" height="200" src="{{imgUrl}}" alt="Wrong Image Path">
+  <p class="img-description" data-toggle="tooltip" title=" {{imgDescription}}">
     {{imgDescription}}
   </p>
-  <button class="fa fa-angle-right img-slider-left-btn  " (click)="getNext(-1)" [disabled]="disabledLeft"></button>
+  <button class="fa fa-angle-left img-slider-left-btn  " (click)="getNext(-1)" [disabled]="disabledLeft"></button>
   <button class="fa fa-angle-right img-slider-right-btn" (click)="getNext(1)" [disabled]="disabledRight"></button>
 </div>
 
@@ -21,9 +23,9 @@
   <table class="table table-hover table-stripped" *ngIf="count">
     <thead>
       <tr>
-        <th width="40%">Image URL</th>
-        <th width="40%">Image Caption</th>
-        <th width="20%" class="edit-delete-heading"></th>
+        <th class="col-w-40">Image URL</th>
+        <th class="col-w-40">Image Caption</th>
+        <th  class="edit-delete-heading col-w-20"></th>
       </tr>
     </thead>
     <tbody>
@@ -31,10 +33,10 @@
         <td class="image-url-description-row">{{image.imageUrl}}   </td>
         <td class="image-url-description-row">{{image.imageDescription}}</td>
         <td class="edit-delete-icon-row">
-          <i class="fa fa-edit" aria-hidden="true" (click)="editImage(image.imageUrl)" data-toggle="tooltip"  title="Edit Image" routerLink="images/edit-image"></i>
-          <i class="fa fa-trash" aria-hidden="true" (click)="deleteImage(image.imageUrl)" data-toggle="tooltip"  title="Delete Image"></i>
+          <i class="fa fa-edit" aria-hidden="true" (click)="editImage(image.imageUrl)" data-toggle="tooltip" title="Edit Image" routerLink="images/edit-image"></i>
+          <i class="fa fa-trash" aria-hidden="true" (click)="deleteImage(image.imageUrl)" data-toggle="tooltip" title="Delete Image"></i>
         </td>
       </tr>
     </tbody>
-    </table>
+  </table>
 </div>

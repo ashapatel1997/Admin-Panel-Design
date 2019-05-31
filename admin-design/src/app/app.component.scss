@@ -1,4 +1,6 @@
 //container class for bottom section
+@import './common-styles/common.scss';
+
 .container-fluid{
   padding:0px;
   margin:0px;
@@ -7,7 +9,7 @@
 //common styles for left panel dropdown icon
 %fa-angle-up-down {
   float: right;
-  padding: 5px 10px 8px 0px;
+  padding: 2px 10px 8px 0px;
   font-size: 20px;
 }
 
@@ -41,14 +43,14 @@
 
   .top-panel-admin-name {
    text-align:right;
-    padding-right: 10px;
+    padding-right: 5px;
     font-size: 20px;
     color: white;
   }
 
   .top-panel-pawor-off-icon {
     color: red;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
     padding-right: 10px;
   }
@@ -82,27 +84,7 @@
       width: 100%;
 
       li {
-        .fa-angle-down {
-          @extend %fa-angle-up-down;
-        }
-
-        .fa-angle-up {
-          @extend %fa-angle-up-down;
-          display: none;
-        }
-
-        &:hover {
-
-
-          .fa-angle-down {
-            display: none;
-          }
-
-          .fa-angle-up {
-            display: block;
-          }
-        }
-
+        
         a {
           color: white;
           display: block;
@@ -117,6 +99,10 @@
           &.active {
             color: #ff9999;
           }
+
+          .submenu-icon {
+            @extend %fa-angle-up-down;
+          }
         }
 
         ul {
@@ -124,7 +110,7 @@
           margin-top: 0px;
           padding-left: 0px;
           overflow: hidden;
-          max-height: 0;
+          max-height: 200px;
 
           li {
             a {
@@ -134,14 +120,6 @@
                 color: #ff9999;
               }
             }
-          }
-        }
-
-        &:hover {
-
-          ul {
-            max-height: 200px;
-            display: block;
           }
         }
       }

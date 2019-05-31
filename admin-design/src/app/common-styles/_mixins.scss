@@ -1,15 +1,13 @@
 //effect of buttons on hover (excluding slider button)
 @mixin button-hover() {
-  background-color: #00264d;
+  background-color: #ff9999;
   font-weight: 400;
-  color: white;
-  box-shadow: 5px 5px 15px #00264d;
+  box-shadow: 5px 1px 5px #00264d;
 }
 
 //effect of image slider button on hover
 @mixin slider-button-hover() {
-  font-size: 20px;
   font-weight: bolder;
-  color: #ffb3b3;
+  color: white;
   border: 1px;
 }

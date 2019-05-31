@@ -26,11 +26,16 @@ export class AddImageComponent implements OnInit {
     this._activatedRoute.paramMap.subscribe(e => {
       const imageName = e.get('imageUrl');
       if (imageName) {
-        this.image = this._imagesService.getImageDetails(imageName);
+        this.getImgDetails(imageName);
+       
       }
     });
 
 
+  }
+
+  getImgDetails(imageName:string) {
+    this.image = this._imagesService.getImageDetails(imageName);
   }
 
   //function call on save button click

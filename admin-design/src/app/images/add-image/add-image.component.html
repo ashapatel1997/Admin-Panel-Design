@@ -1,8 +1,8 @@
 <!--top header-->
-<nav class="navbar  navbar-light bg-custom bottom-panel-top-header">
-  <a class="navbar-brand content-title">Add Image</a>
-  <button routerLink="/images" class="btn btn-primary pull-right"><i class="fa  fa-angle-double-left" arial-hidden="true"></i>Back</button>
-</nav>
+<div class=" content-top-header">
+  <h4 class="navbar-brand content-title d-inline-block">Add Image</h4>
+  <button routerLink="/images" target="_parent" href="" class="btn btn-primary pull-right d-inline-block"><i class="fa  fa-angle-double-left" arial-hidden="true"></i>Back</button>
+</div>
 
 <!--add image form-->
 <form (ngSubmit)="saveImage()"  #form="ngForm">
@@ -10,7 +10,7 @@
   <!--image URL input field-->
   <div class="form-group img-url-div">
     <label for="imageUrl" class="img-url-label">Image URL</label>
-    <input type="text" name="imageUrl" id="imageUrl" class="form-control img-url-input" autocomplete="off" [(ngModel)]="image.imageUrl" required #url="ngModel" placeholder="URL" />
+    <input type="text" name="imageUrl" id="imageUrl" class="form-control img-url-input" autocomplete="off" [(ngModel)]="image.imageUrl" required #url="ngModel" placeholder="Image URL" />
     <div *ngIf="url.errors && (url.dirty || url.touched)">
       <div [hidden]="!url.errors.required" class="error-alert">
         Image URL field is empty
@@ -22,7 +22,7 @@
   <div class="form-group img-description-div">
     <label for="imgDescription" class="img-description-label">Image Description</label>
 
-    <textarea class="form-control img-description-input" type="text" rows="2" name="imageDescription" id="imageDescription" autocomplete="off" [(ngModel)]="image.imageDescription" required #description="ngModel" placeholder="Description"> </textarea>
+    <textarea class="form-control img-description-input" type="text" rows="2" name="imageDescription" id="imageDescription" autocomplete="off" [(ngModel)]="image.imageDescription" required #description="ngModel" placeholder="Image Description"> </textarea>
 
     <div *ngIf="description.errors && (description.dirty || description.touched)">
       <div [hidden]="!description.errors.required" class="error-alert">
@@ -32,10 +32,10 @@
   </div>
 
   <!--save and calcel button-->
-    <nav class="navbar  navbar-light bg-custom form-control-btn">
-      <button class="btn btn-primary pull-left save-btn" type="submit" value="submit" [disabled]="!form.valid"><i class="fa  fa-save" arial-hidden="true"></i>Save</button>
-      <button class="btn btn-secondary pull-right cancel-btn" (mousedown)="cancel()" ><i class="fa  fa-close" arial-hidden="true"></i>Cancel</button>
-    </nav>
+    <div class="form-control-btn">
+      <button class="btn btn-primary d-inline-block save-btn" type="submit" value="submit" [disabled]="!form.valid"><i class="fa  fa-save" arial-hidden="true"></i>Save</button>
+      <button class="btn btn-secondary d-inline-block cancel-btn" (mousedown)="cancel()" ><i class="fa  fa-close" arial-hidden="true"></i>Cancel</button>
+    </div>
 </form>
 
 

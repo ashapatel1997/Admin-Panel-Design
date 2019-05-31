@@ -2,15 +2,22 @@
 
 /*top navbar heading of bottom right content
 ---other styles imported from common.scss*/
-.navbar {
- 
+.content-top-header {
+  padding: 8px 8px 3px 8px;
+
+  .content-title {
+    padding: 0px;
+    font-size: 25px;
+    margin: 0px;
+  }
+
   button {
     float: right;
-    padding: 5px;
+    padding: 2px 5px 2px 5px;
+    margin-top: 0px;
     background-color: #ffb3b3;
     color: #00264d;
-    border: 1px solid #00264d;
-    margin: 5px;
+    border: 1px solid grey;
 
     &:hover {
 
@@ -25,7 +32,7 @@
 
 /*styles for image slider div*/
 .img-slider {
-  border: 1px solid #00264d;
+  border: 1px solid grey;
   width: 40%;
   position: relative;
   left: 30%;
@@ -35,12 +42,16 @@
   .img {
     position: relative;
     width: 100%;
-    border-bottom: 1px solid #00264d;
+    border-bottom: 1px solid grey;
   }
 
   .img-description {
+    cursor:pointer;
+    overflow: hidden;
+    white-space: nowrap;
     padding: 5px 10px 5px 10px;
     font-family: Calibri;
+    text-overflow: ellipsis;
   }
   /*left slider button*/
   .img-slider-left-btn {
@@ -62,6 +73,7 @@
     &[disabled] {
       background-color: #808080;
       cursor: no-drop;
+      color: white;
       border: 1px solid #808080;
     }
   }
@@ -85,6 +97,7 @@
     &[disabled] {
       background-color: #808080;
       cursor: no-drop;
+      color: white;
       border: 1px solid #808080;
     }
   }
@@ -97,9 +110,10 @@
   margin-top: 30px;
   left: 25%;
   min-height: 30%;
-  right:25%;
+  right: 25%;
 
   table {
+    //white-space: nowrap;
     background-color: #f0f5f5;
     font-family: Calibri;
     position: relative;
@@ -108,7 +122,7 @@
 
     tr, td {
       border-collapse: collapse;
-      border: 1px solid #00264d;
+      border: 1px solid grey;
       text-align: left;
       cursor: pointer;
       padding: 5px;
@@ -120,7 +134,7 @@
       th {
         text-align: center;
         border-collapse: collapse;
-        border: 1px solid black;
+        border: 1px solid grey;
         padding: 0;
       }
 
@@ -128,11 +142,9 @@
       .edit-delete-icon-row {
         font-size: 25px;
         text-align: center;
+
         .fa-edit {
           margin-right: 15px;
-        }
-
-        .fa-trash {
         }
       }
     }
@@ -141,12 +153,7 @@
 
 /*address image button size command table size styles for max screen size 768px*/
 @media only screen and (max-width:768px) {
-  .bottom-panel-top-header {
-    /*add image button of bottom top header*/
-    button {
-      font-size: 13px;
-    }
-  }
+  
   .img-list-table {
     width: 80%;
     left: 10%;
@@ -158,6 +165,18 @@
 /*image slider,table containing image list styles for max screen size 425px*/
 @media only screen and (max-width:425px)
 {
+  .content-top-header {
+    .content-title {
+      font-size: 20px;
+    }
+    /*add image button of bottom top header*/
+    button {
+      font-size: 15px;
+      margin-top: 0px;
+    }
+  }
+
+
   .img-slider {
     width: 80%;
     left: 10%;

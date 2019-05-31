@@ -53,6 +53,11 @@ export class ImagesComponent implements OnInit {
 
   }
 
+  setIndexMinusOne() {
+    this._imagesService.setIndexMinusOne();
+  }
+
+
   //delete image
   deleteImage(image: string) {
     this.index = this._imagesService.deleteImage(image);
@@ -76,15 +81,24 @@ export class ImagesComponent implements OnInit {
     this._route.navigate(['images/edit-image', imageUrl]);
   }
 
-
-  //get next or privious image index
+  /**
+   * get next or privious image index
+   * @param n is +1(if user clicks on right slider button) or
+   *              -1 (if user clicks on left slider button)
+   */
+  
   getNext(n) {
     this.imageIndex += n;
     this.getNextImage(this.imageIndex);
   }
 
-  //display next or previous image
+  /**get next or previous image to display in slider
+   * 
+   * @param imageIndex is index+1 
+   */
+ 
   getNextImage(imageIndex: number) {
+
     //disable left slider button if index is 0
     if ((imageIndex - 1) == 0) {
       this.disabledLeft = true;

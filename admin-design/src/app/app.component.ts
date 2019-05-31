@@ -6,31 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  selected: boolean = false;
-  containerActive: boolean = false;
-  selectedOption() {
-    this.selected = true;
-  }
 
-  clickActive() {
-    this.containerActive = !this.containerActive;
-    console.log(this.containerActive);
+
+  showVar: boolean = false;
+
+  toggleChild() {
+    this.showVar = !this.showVar;
   }
   name = 'Angular';
-  icon: string = "fa-angle-down";
+ 
   constructor() { }
 
   ngOnInit() {
-
+   
   }
 
-  public changeIcon() {
-    if (this.icon === 'fa-angle-down') {
-      this.icon = 'fa-angle-up';
-    } else {
-      this.icon = 'fa-angle-down'
-    }
-  }
-
+ 
 }
 

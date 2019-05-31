@@ -5,10 +5,8 @@
     "\\src\\app",
     "\\src\\app\\common-styles",
     "\\src\\app\\images",
-    "\\src\\app\\images\\add-image",
-    "\\src\\app\\users",
-    "\\src\\assets"
+    "\\src\\app\\images\\add-image"
   ],
-  "SelectedNode": "\\src\\app\\users\\users.component.html",
+  "SelectedNode": "\\src\\app\\images\\images.component.ts",
   "PreviewInSolutionExplorer": false
 }
