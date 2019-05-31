@@ -67,7 +67,7 @@ form {
       padding: 5px;
       margin-left:10px;
       &:hover {
-
+        background-color:gray !important;
         @include button-hover();
       }
 
