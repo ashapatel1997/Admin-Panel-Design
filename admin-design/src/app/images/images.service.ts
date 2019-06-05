@@ -42,7 +42,9 @@ export class ImagesService {
       /*if length is zero then assign maxId=1*/
       if (this.imageList.length == 0) {
         this.maxId = 1;
+        image.id = this.maxId;
         this.imageList.push(image);
+        console.log("assign id=", image.id);
       }
       else {
         this.maxId = this.imageList.reduce(function (i1, i2) { return (i1 > i2) ? i1 : i2 }).id;
