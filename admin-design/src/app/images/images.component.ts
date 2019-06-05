@@ -33,6 +33,7 @@ export class ImagesComponent implements OnInit {
    //if length of array is zero then display default image and disable slider buttons
     if (this._imagesService.getLength() == 0)
     {
+    
       this.count = false;
       this.imgUrl = 'assets/image-not-available.png';
       this.imgDescription = '';
@@ -71,6 +72,7 @@ export class ImagesComponent implements OnInit {
    
 
     if (this.length == 0) {
+     
       this.count = false;
       this.imgUrl = 'assets/image-not-available.png';
       this.imgDescription = '';
