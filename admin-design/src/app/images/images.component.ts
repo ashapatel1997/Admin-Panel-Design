@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Images } from './images';
 import { ImagesService } from './images.service';
 import { Router, ActivatedRoute } from '@angular/router';
+
+
+
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -16,8 +19,8 @@ export class ImagesComponent implements OnInit {
 
   listImg: Images[]; //array of images
   fetchImage: Images; //fetch image to display in slider
-  imgUrl = '';
-  imgDescription = '';
+  imgUrl = ''; //image URL
+  imgDescription = ''; //image Description
   index = 0; //deleted image index
   disabledLeft: boolean; //left slider button
   disabledRight: boolean; //right slider button
@@ -28,8 +31,11 @@ export class ImagesComponent implements OnInit {
   if length is zero then count = false and hide table*/
   count: boolean;
 
+  //variable for "for loop"
+  i: number;
+ 
   ngOnInit() {
-
+    
    //if length of array is zero then display default image and disable slider buttons
     if (this._imagesService.getLength() == 0)
     {
@@ -44,33 +50,38 @@ export class ImagesComponent implements OnInit {
     //else display first image in slider
     else {
       this.count = true;
+     
       this.listImg = this._imagesService.getImages();
+      
       this.fetchImage = this._imagesService.getFetchedImage(0);
 
       this.imageIndex = 1;
-
+     
       this.length = this.listImg.length;
       this.getNextImage(this.imageIndex);
     }
-
-
-
-  }
-
-  //edit selected image
-  editImage(id: number) {
-    
-    this._route.navigate(['images/edit-image',id]);
   }
 
 
-  //delete image
+  /**edit selected image
+   * 
+   * @param image object of Images array
+   */
+  editImage(image: Images) {
+    this._route.navigate(['images/edit-image', image.id]);
+  }
+
+ 
+  /**delete selected image
+   * 
+   * @param id of image
+   */
   deleteImage(id: number) {
    
     this.index = this._imagesService.deleteImage(id);
     this.length = this.listImg.length;
    
-
+    //if image array is empty then disply default image
     if (this.length == 0) {
      
       this.count = false;
