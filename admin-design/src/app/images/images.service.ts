@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Images } from './images';
 
 
-
+//interface that stores the original content of image
 interface originalContent {
   id: number;
   imageUrl: string;
@@ -13,9 +13,6 @@ interface originalContent {
 @Injectable({
   providedIn: 'root'
 })
-
-
-
 
 export class ImagesService {
 

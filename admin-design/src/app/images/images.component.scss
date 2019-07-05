@@ -31,75 +31,23 @@
 }
 
 /*styles for image slider div*/
-.img-slider {
-  border: 1px solid grey;
-  width: 40%;
-  position: relative;
-  left: 30%;
-  min-height: 30%;
-  background-color: #f0f5f5;
+.img-slider { border: 1px solid grey; width: 40%; position: relative; left: 30%; min-height: 30%; background-color: #f0f5f5;
 
-  .img {
-    position: relative;
-    width: 100%;
-    border-bottom: 1px solid grey;
+  .img { position: relative; width: 100%; border-bottom: 1px solid grey; }
+
+  .img-description { cursor: pointer; overflow: hidden; white-space: nowrap; padding: 5px 10px 5px 10px; font-family: Calibri; text-overflow: ellipsis; }
+  /*left slider button*/ .img-slider-left-btn { position: absolute; top: 30%; left: 0%; background-color: black; font-weight: bold; font-size: 25px; cursor: pointer; color: white; border: 1px solid black;
+
+
+    &:hover { box-shadow: 1px 0px 5px #979aa1; }
+
+    &[disabled] { box-shadow: none; background-color: #808080; cursor: no-drop; color: white; border: 1px solid #808080; }
   }
+  /*right slider button*/ .img-slider-right-btn { position: absolute; right: 0%; top: 30%; background-color: black; font-weight: bold; font-size: 25px; cursor: pointer; color: white; border: 1px solid black;
 
-  .img-description {
-    cursor:pointer;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 5px 10px 5px 10px;
-    font-family: Calibri;
-    text-overflow: ellipsis;
-  }
-  /*left slider button*/
-  .img-slider-left-btn {
-    position: absolute;
-    top: 30%;
-    left: 0%;
-    background-color: black;
-    font-weight: bold;
-    font-size: 25px;
-    cursor: pointer;
-    color: white;
-    border: 1px solid black;
+    &:hover { box-shadow: -1px 0px 5px #979aa1; }
 
-
-    &:hover {
-      @include slider-button-hover();
-    }
-
-    &[disabled] {
-      background-color: #808080;
-      cursor: no-drop;
-      color: white;
-      border: 1px solid #808080;
-    }
-  }
-  /*right slider button*/
-  .img-slider-right-btn {
-    position: absolute;
-    right: 0%;
-    top: 30%;
-    background-color: black;
-    font-weight: bold;
-    font-size: 25px;
-    cursor: pointer;
-    color: white;
-    border: 1px solid black;
-
-    &:hover {
-
-      @include slider-button-hover();
-    }
-
-    &[disabled] {
-      background-color: #808080;
-      cursor: no-drop;
-      color: white;
-      border: 1px solid #808080;
-    }
+    &[disabled] { box-shadow: none; background-color: #808080; cursor: no-drop; color: white; border: 1px solid #808080; }
   }
 }
 
@@ -193,7 +141,7 @@
 
       &:hover {
         font-size: 20px;
-        @include slider-button-hover();
+       
       }
     }
 
